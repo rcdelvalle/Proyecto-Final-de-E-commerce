@@ -89,7 +89,7 @@ video {
 
 /* Efecto al pasar el mouse (hover) */
 .menu a:hover {
-    color: #cccccc;           /* Cambia a un gris claro al pasar el mouse */
+    color: #000000;           /* Cambia a negro al pasar el mouse */
 }
 
 
@@ -151,7 +151,7 @@ section h2, p {
 }
 
 /* Forzamos al botón a alinearse al final */
-.boton-seleccionar {
+.agregar-carrito {
     margin-top: auto;       /* ¡EL TRUCO MÁGICO!: Empuja el botón hacia el extremo inferior de forma automática */
     align-self: center;     /* Mantiene el botón centrado horizontalmente */
     display: inline-block;
@@ -272,56 +272,63 @@ section h2, p {
 }
 
 
-/* contacto */
-
-.contacto-section {
-    padding: 80px 20px;
-    background-color: #fff;
-}
-
-/* Contenedor principal de la sección de contacto */
+/* --- Sección Contacto Base (Mobile) --- */
 .contacto-container {
-    max-width: 1200px;
-    margin: auto;
-
     display: flex;
-    gap: 30px;
-    align-items: stretch; /* CRÍTICO: Fuerza a que ambas columnas midan lo mismo de alto */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 2rem;              /* Espacio entre la info y el formulario */
+    padding: 1rem;
+    width: 100%;
 }
 
-/* 1. Alinea todos los elementos de la info uno abajo del otro y los centra */
-.contacto-info {
-    flex: 0 0 45%;       /* Toma el 45% del ancho */
+.contacto-info, 
+.contacto-form {
+    width: 100%;            /* Ocupan todo el ancho en celulares */
+}
+
+/* Ajuste para que el mapa no rompa el diseño en pantallas chicas */
+.mapouter, 
+.gmap_canvas, 
+#gmap_canvas {
+    width: 100% !important;  /* Sobrescribe los anchos fijos del HTML */
+    height: 250px !important;/* Un alto razonable para celulares */
+}
+
+/* Estilos rápidos para el formulario en formato vertical */
+.contacto-form form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaciado uniforme entre el título, los datos y el mapa */
-    /*align-items: flex-start; Alinea todo a la izquierda. Si preferís todo centrado, cambiá por: center */
+    gap: 1rem;
 }
 
-.contacto-form {
-    flex: 0 0 40%;       /* Toma el 40% del ancho */
-}
-
-/* 2. Reseteamos los estilos fijos del mapa para que no fuercen anchos raros */
-.mapouter {
-    position: relative;
-    width: 100%;  /* Ocupa el ancho disponible de la columna */
-    height: auto; /* Deja que el contenido defina el alto */
-}
-
-.gmap_canvas {
-    overflow: hidden;
-    background: none !important;
+.contacto-form input, 
+.contacto-form textarea {
     width: 100%;
-    height: auto;
+    padding: 0.8rem;
+    box-sizing: border-box; /* Evita que el padding sume ancho extra */
 }
 
-/* 3. Hacemos que el iframe sea responsivo y no se deforme */
-#gmap_canvas {
-    width: 100% !important; /* Se adapta al contenedor */
-    max-width: 600px;       /* Ancho máximo sugerido para que no quede gigante en pantallas grandes */
-    height: 300px;          /* Ajustá la altura a tu gusto (ej. 250px o 300px queda genial) */
-    border-radius: 8px;     /* Opcional: le da bordes redondeados estéticos como a tus cards */
+/* --- Media Query para Tablets y Computadoras --- */
+@media screen and (min-width: 768px) {
+    .contacto-container {
+        flex-direction: row;       /* Se ponen uno al lado del otro */
+        justify-content: space-between;
+        align-items: flex-start;    /* Alinea ambos bloques al tope */
+        gap: 3rem;                 /* Más espacio de separación en escritorio */
+    }
+
+    .contacto-info {
+        flex: 1;                   /* Toma una parte equitativa del espacio */
+    }
+
+    .contacto-form {
+        flex: 1;                   /* Toma la otra parte equitativa */
+    }
+
+    /* Opcional: Si querés que el mapa recupere un tamaño más grande en desktop */
+    #gmap_canvas {
+        height: 300px !important;
+    }
 }
 
 
@@ -369,8 +376,9 @@ section h2, p {
 /* boton Enviar Mensaje */
 .boton-mensaje {
     display: inline-block;
-    margin-top: 35px;
-    padding: 20px 38px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    padding: 20px 18px;
 
     background: linear-gradient(135deg, #60FC23, #2E7D11);
     color: #111;
@@ -402,7 +410,7 @@ section h2, p {
 
 
 /* boton Seleccionar */
-.boton-seleccionar {
+.agregar-carrito {
     margin-left: 10px;
     display: inline-block;
     padding: 12px 28px;
@@ -421,14 +429,14 @@ section h2, p {
 }
 
 
-.boton-seleccionar:hover {
+.agregar-carrito:hover {
     background: linear-gradient(135deg, #ff9900, #ffcc00);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 
-.boton-seleccionar:active {
+.agregar-carrito:active {
     transform: translateY(0);
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
@@ -503,4 +511,59 @@ section h2, p {
     text-align: center;
     font-size: 14px;
     color: #aaa;
+}
+
+
+/* Carrito */
+.carrito-container {
+    max-width: 1200px;
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: 60% 35%;
+    gap: 40px;
+}
+
+#carrito {
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.eliminar-producto {
+    margin: 10px;
+    display: inline-block;
+    padding: 5px;
+
+    background: linear-gradient(135deg, #FF290D, #AD1705);
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 30px;
+    border: none;
+
+    transition: all 0.3s ease;
+
+}
+
+#vaciar-carrito {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+    display: inline-block;
+    /*padding: 5px;*/
+
+    background: linear-gradient(135deg, #FF290D, #AD1705);
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 30px;
+    border: none;
+
+    transition: all 0.3s ease;
 }

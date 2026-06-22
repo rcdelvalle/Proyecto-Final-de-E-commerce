@@ -27,7 +27,7 @@
 
 
         <!-- Menu -->
-        <nav class="menu">
+        <nav class="menu" aria-label="Navegación principal">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -57,22 +57,24 @@
 
             <section class="productos" id="productos">
                 <h2 class="section-title">Productos</h2>
-                <ul class="menu">
-                    <li><a href="computadoras.html">Computadoras</a></li>
-                    <li><a href="computadoras.html#hardware">Hardware</a></li>
-                    <li><a href="">Periféricos</a></li>
-                    <li><a href="">Gaming House</a></li>
-                    <li><a href="">Monitores</a></li>
-                    <li><a href="">Impresoras</a></li>
-                    <li><a href="">Conectividad</a></li>
-                    
-                </ul>
+                <nav aria-label="Categorías de productos">
+                    <ul class="menu">
+                        <li><a href="computadoras.html">Computadoras</a></li>
+                        <li><a href="computadoras.html">Hardware</a></li>
+                        <li><a href="">Periféricos</a></li>
+                        <li><a href="">Gaming House</a></li>
+                        <li><a href="">Monitores</a></li>
+                        <li><a href="">Impresoras</a></li>
+                        <li><a href="">Conectividad</a></li>
+                        
+                    </ul>
+                </nav>
 
             </section>
             
             <section class="compusoft-section" id="servicios">
                 <h2 class="section-title">Servicios</h2>
-                <div class="cards-container">
+                <div class="cards-container" id="container-tarjetas">
 
                     <!-- Card 1 -->
                     <div class="card">
@@ -184,7 +186,7 @@
                         <p>✉️ ventas@compusoft.com</p>
                         <div class="mapouter">
                             <div class="gmap_canvas">
-                                <iframe width="820" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Suarez+1729%2C+Buenos+Aires&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><br><style>.mapouter{position: relative;text-align: right;height: 560px;width: 620px;}</style><style>.gmap_canvas{overflow: hidden;background: none !important;height: 450px;width: 600px;}</style>
+                                <iframe title="Ubicación de la sucursal de Compu-Soft en Google Maps" width="820" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Suarez+1729%2C+Buenos+Aires&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><br><style>.mapouter{position: relative;text-align: right;height: 760px;width: 620px;}</style><style>.gmap_canvas{overflow: hidden;background: none !important;height: 550px;width: 600px;}</style>
                             </div>
                         </div>
                     </div>
@@ -192,11 +194,27 @@
                     <!-- Formulario -->
                     <div class="contacto-form">
                         <h3 id="contacto-titulo">Escribinos</h3>
-                        <form action="" method="POST">
-                            <input type="text" name="nombre" placeholder="Nombre" required>
-                            <input type="email" name="email" placeholder="Email" required>
-                            <input type="tel" name="telefono" placeholder="Teléfono">
-                            <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                        <form action="" method="POST" aria-labelledby="contacto-titulo">
+                            
+                            <div class="form-group">
+                                <label for="nombre">Nombre (requerido):</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Correo electrónico (requerido):</label>
+                                <input type="email" id="email" name="email" placeholder="Tu email" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje (requerido):</label>
+                                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required aria-required="true"></textarea>
+                            </div>
 
                             <button type="submit" class="boton-mensaje">
                                 Enviar mensaje

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Computadoras</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <div class="container">
+                <h1 class="logo">
+                <img src="img/logo.png" alt="Logo Compu-Soft" width="50" height="50" >
+                Compu-Soft
+                </h1>
+
+            </div>
+        
+        </header>
+
+
+        <!-- Menu -->
+        <nav class="menu" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#resenias-section">Reseñas</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="lista-productos">
+                <h2 class="section-title">Computadoras</h2>
+
+                <div class="cards-container" id="container-tarjetas">
+
+                </div>
+            </section>
+
+            <section class="carrito-container">
+                <!-- Carrito de Compras --> 
+                <div id="carrito"> 
+                    <h2>Carrito de Compras</h2> 
+
+                    <table border="1" id="tabla-productos">
+                        <caption>Lista de productos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Subtotal</th>
+                                <th scope="col">Eliminar del Carrito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+
+                    </table>
+
+                    <button id="vaciar-carrito">Vaciar Carrito</button> 
+                </div>
+
+                <!-- 
+                2. Configurar el contador
+                a. Mostrá un contador (por ejemplo, en la esquina superior) 
+                que indique cuántos productos hay en el carrito.
+                -->
+                <div id="contador-productos">
+                    <h2>Cantidad de productos en el carrito</h2>
+
+                    
+                            
+                </div>
+            </section>
+
+
+        </main>
+
+        <footer class="footer">
+
+            <div class="footer-container">
+
+                <!-- Columna 1 -->
+                <div class="footer-box">
+                    <h3>Compu-Soft</h3>
+                    <p>
+                        Tienda Compu-Soft.
+                        Más de 5 años brindando confianza y calidad.
+                    </p>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="footer-box">
+                    <h3>Enlaces</h3>
+
+                    <ul>
+                        <li><a href="index.html#inicio">Inicio</a></li>
+                        <li><a href="computadoras.html">Computadoras</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#nosotros">Nosotros</a></li>
+                        <li><a href="index.html#resenias-section">Reseñas</a></li>
+                        <li><a href="index.html#contacto">contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="footer-box">
+                    <h3>contacto</h3>
+                    <p>Av. Suarez 1729</p>
+                    <p>📞 +54 11 4301-1618</p>
+                    <p>✉️ ventas@compusoft.com</p>
+                </div>
+
+                <!-- Columna 4 -->
+                <div class="footer-box">
+                    <h3>Seguinos</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Compu-Soft | Todos los derechos reservados
+                </p>
+            </div>
+
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script src="js/mi_script.js"></script>
+    </body>
+</html>
